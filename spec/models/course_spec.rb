@@ -29,7 +29,7 @@ describe Course do
       end
 
       it 'returns both sites with the correct format' do
-        expect(course.travel_to_work_areas).to eq 'Westminster and Camden'
+        expect(course.travel_to_work_areas).to eq 'Camden and Westminster'
       end
     end
 
@@ -47,7 +47,7 @@ describe Course do
       end
 
       it 'returns all sites with the correct format' do
-        expect(course.travel_to_work_areas).to eq 'Westminster, Camden, Southwark and Islington'
+        expect(course.travel_to_work_areas).to eq 'Camden, Islington, Southwark and Westminster'
       end
     end
   end
