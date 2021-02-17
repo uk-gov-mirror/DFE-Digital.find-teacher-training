@@ -11,6 +11,7 @@ module PageObjects
       class CourseSection < SitePrism::Section
         element :provider_name, '[data-qa="course__provider_name"]'
         element :description, '[data-qa="course__description"]'
+        element :travel_to_work_areas, '[data-qa="course__travel_to_work_areas"]'
         element :name, '[data-qa="course__name"]'
         element :accrediting_provider, '[data-qa="course__accrediting_provider"]'
         element :funding_options, '[data-qa="course__funding_options"]'
