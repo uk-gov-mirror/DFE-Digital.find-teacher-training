@@ -24,9 +24,19 @@
       document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');
     </script>
 
-    <a href="#main-content" class="govuk-skip-link">Skip to main content</a>
+    <% unless current_page?(cookie_preferences_path) %>
+      <%= render GovukComponent::CookieBanner.new(title: 'Cookies on Find postgraduate teacher training', html_attributes: { hidden: true, 'aria-label': 'Cookies on Find postgraduate teacher training', 'data-module': 'govuk-cookie-banner', 'data-qa': 'cookie-banner' }) do |cookie_banner| %>
+        <%= cookie_banner.with(:body) do %>
+          <p>We use cookies to collect information about how you use this service.</p>
+        <% end %>
+        <%= cookie_banner.with(:actions) do %>
+          <button type="button" class="govuk-button" data-qa="cookie-banner__accept">Accept all cookies</button>
+          or <%= govuk_link_to('set your cookie preferences', cookie_preferences_path, { class: 'govuk-!-margin-left-2', data: { qa: 'cookie-banner__preference-link' } }) %>
+        <% end %>
+      <% end %>
+    <% end %>
 
-    <%= render partial: 'layouts/cookie-banner' unless current_page?(cookie_preferences_path)%>
+    <a href="#main-content" class="govuk-skip-link">Skip to main content</a>
 
     <%= render GovukComponent::Header.new(
       logo: 'GOV.UK',

@@ -5,7 +5,7 @@ import {setConsentedToCookie,
 
 export default class CookieBanner {
   constructor() {
-    this.$module = document.querySelector('[data-module="app-cookie-banner"]');
+    this.$module = document.querySelector('[data-module="govuk-cookie-banner"]');
 
     // If the page doesn't have the banner then stop
     if (!this.$module) {
@@ -26,7 +26,7 @@ export default class CookieBanner {
   }
 
   bindEvents() {
-    this.acceptButton.addEventListener("click", () => this.acceptCookie());
+    this.acceptButton.addEventListener('click', () => this.acceptCookie());
   }
 
   acceptCookie() {
@@ -36,10 +36,10 @@ export default class CookieBanner {
   }
 
   showCookieMessage() {
-    this.$module.classList.remove("app-cookie-banner--hidden");
+    this.$module.hidden = false;
   }
 
   hideCookieMessage() {
-    this.$module.classList.add("app-cookie-banner--hidden");
+    this.$module.hidden = true;
   }
 }
