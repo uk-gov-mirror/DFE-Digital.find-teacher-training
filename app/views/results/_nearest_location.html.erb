@@ -1,0 +1,10 @@
+<dt class="govuk-list--description__label">Nearest Location</dt>
+<dd>
+  <%= "#{pluralize(@results_view.site_distance(course), 'mile')} from you" %>
+
+  <% if course.university_based? %>
+    <span class="govuk-list--description__hint govuk-!-margin-top-0">
+      Distance to university campus. You'll only spend some of your time here.
+    </span>
+  <% end %>
+</dd>

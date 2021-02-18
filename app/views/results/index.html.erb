@@ -96,11 +96,7 @@
               <dt class="govuk-list--description__label">School placements</dt>
               <dd data-qa="course__travel_to_work_areas"><%= course.travel_to_work_areas %></dd>
               <% if @results_view.location_filter? && @results_view.has_sites?(course) %>
-                <% if course.university_based? %>
-                  <%= render partial: 'results/university', locals: { course: course } %>
-                <% else %>
-                  <%= render partial: 'results/non_university', locals: { course: course } %>
-                <% end %>
+                <%= render partial: 'results/nearest_location', locals: { course: course } %>
               <% end %>
               <dt class="govuk-list--description__label">Financial support</dt>
               <dd data-qa="course__funding_options"><%= course.decorate.funding_option %></dd>
